@@ -1,0 +1,31 @@
+{
+  "name": "keepelectron",
+  "version": "1.0.0",
+  "description": "A dekstop implementation of Google Keep",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^5.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WahajJaved/KeepElectron.git"
+  },
+  "keywords": [
+    "google",
+    "keep",
+    "electron",
+    "js",
+    "linux"
+  ],
+  "author": "Wahaj Javed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WahajJaved/KeepElectron/issues"
+  },
+  "homepage": "https://github.com/WahajJaved/KeepElectron#readme"
+}
