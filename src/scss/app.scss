@@ -1,0 +1,10 @@
+@import "@material/button/mdc-button";
+.test-button {
+	@include mdc-button-ink-color(teal);
+	@include mdc-states(teal);
+}
+
+
+$mdc-theme-primary: #880e4f;
+$mdc-theme-secondary: #820e1f;
+
