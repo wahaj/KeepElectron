@@ -1,34 +1,36 @@
-const { app, BrowserWindow, ipcMain} = require('electron')
-
+const electron = require('electron');
+//{ app, BrowserWindow, ipcMain} = electron;
 function createWindow () {
     // Creates an object of a browser window class which shall
     // be used throughout as the main interface to the window
-    let window = new BrowserWindow({
+    let window = new electron.BrowserWindow({
         frame: true,
         width: 800,
         height: 400,
+        show: true,
         icon: __dirname + '/app/assets/keep-icon.png',
         webPreferences: {
             nodeIntegration: true
         }
-    })
-    // Loads the inde.html page in the electron browser
-    window.loadFile('app/index.html')
+    });
+    // Loads the index.html page in the electron browser
+    console.log("ASA");
+    window.loadFile('index.html');
     //window.loadURL('file://' + __dirname + '/index.html')
     //window.loadURL('https://keep.google.com')
     window.webContents.openDevTools();
 
     window.on('closed', () => {
-        // Deferencing the window object so as to delete it
+        // Dereference the window object so as to delete it
         window = null
     })
 
 }
 //  Start point for the application for most use cases
-app.on('ready', createWindow)
+electron.app.on('ready', createWindow);
 
-ipcMain.on('openGoogleLogin', () => {
-    let loginWindow = new BrowserWindow({
+electron.ipcMain.on('openGoogleLogin', () => {
+    let loginWindow = new electron.BrowserWindow({
             frame: true,
             width: 800,
             height: 400,
@@ -37,9 +39,9 @@ ipcMain.on('openGoogleLogin', () => {
                 nodeIntegration: true
             }
         }
-    )
-    loginWindow.loadFile('app/')
-})
+    );
+    //loginWindow.loadFile('src/');
+});
 
 
 // Google OAuth
@@ -61,6 +63,6 @@ ipcMain.on('openGoogleLogin', () => {
 // })
 
 
-app.on('window-all-closed', () => {
-    app.quit();
-})
+electron.app.on('window-all-closed', () => {
+	electron.app.quit();
+});

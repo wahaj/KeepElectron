@@ -6,6 +6,7 @@ window.onload = function () {
         button.addEventListener('click', logInGoogle, false);
     }
 };
+
 function logInGoogle () {
     console.log("ASASAS");
     ipcRenderer.send('openGoogleLogin' );
