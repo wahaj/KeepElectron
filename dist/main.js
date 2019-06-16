@@ -137,7 +137,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const { ipcRenderer } = __webpack_require__(/*! electron */ \"./node_modules/electron/index.js\");\n\nwindow.onload = function () {\n    let button = document.getElementsByClassName('.login-button')[0];\n    if (button) {\n        button.addEventListener('click', logInGoogle, false);\n    }\n};\nfunction logInGoogle () {\n    console.log(\"ASASAS\");\n    ipcRenderer.send('openGoogleLogin' );\n}\n\n// var settingsEl = document.querySelector('.settings');\n// settingsEl.addEventListener('click', function () {\n//     ipc.send('open-settings-window');\n// });\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("var _require = __webpack_require__(/*! electron */ \"./node_modules/electron/index.js\"),\n    ipcRenderer = _require.ipcRenderer;\n\nwindow.onload = function () {\n  var button = document.getElementsByClassName('.login-button')[0];\n\n  if (button) {\n    button.addEventListener('click', logInGoogle, false);\n  }\n};\n\nfunction logInGoogle() {\n  console.log(\"ASASAS\");\n  ipcRenderer.send('openGoogleLogin');\n} // var settingsEl = document.querySelector('.settings');\n// settingsEl.addEventListener('click', function () {\n//     ipc.send('open-settings-window');\n// });\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

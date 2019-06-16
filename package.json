@@ -5,6 +5,9 @@
   "main": "main.js",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
     "bootstrap": "^4.3.1",
     "css-loader": "^3.0.0",
     "electron": "^5.0.3",
@@ -20,7 +23,7 @@
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
-	"build": "webpack --mode production"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
