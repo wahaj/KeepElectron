@@ -1,9 +1,14 @@
 const electron = require('electron');
-//{ app, BrowserWindow, ipcMain} = electron;
+const app  = electron.app;
+const BrowserWindow = electron.BrowserWindow;
+const ipcMain = electron.ipcMain;
+
+
+let mainWindow = null;
 function createWindow () {
     // Creates an object of a browser window class which shall
     // be used throughout as the main interface to the window
-    let window = new electron.BrowserWindow({
+    mainWindow = new BrowserWindow({
         frame: true,
         width: 800,
         height: 400,
@@ -15,23 +20,24 @@ function createWindow () {
     });
     // Loads the index.html page in the electron browser
     console.log("ASA");
-    window.loadFile('index.html');
-    //window.loadURL('file://' + __dirname + '/index.html')
+    //window.loadFile('index.html');
+    mainWindow.loadURL('file://' + __dirname + '/src/index.html');
     //window.loadURL('https://keep.google.com')
-    window.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
-    window.on('closed', () => {
+    mainWindow.on('closed', () => {
         // Dereference the window object so as to delete it
-        window = null
+        mainWindow = null;
     })
 
 }
 //  Start point for the application for most use cases
-electron.app.on('ready', createWindow);
+app.on('ready', createWindow);
 
-electron.ipcMain.on('openGoogleLogin', () => {
-    let loginWindow = new electron.BrowserWindow({
-            frame: true,
+ipcMain.on('openGoogleLogin', () => {
+
+    let loginWindow = new BrowserWindow({
+            frame: false,
             width: 800,
             height: 400,
             icon: __dirname + '/app/assets/keep-icon.png',
@@ -40,7 +46,8 @@ electron.ipcMain.on('openGoogleLogin', () => {
             }
         }
     );
-    //loginWindow.loadFile('src/');
+    mainWindow.vis
+    loginWindow.loadURL('file://' + __dirname + '/src/signin.html');
 });
 
 
@@ -63,6 +70,6 @@ electron.ipcMain.on('openGoogleLogin', () => {
 // })
 
 
-electron.app.on('window-all-closed', () => {
-	electron.app.quit();
+app.on('window-all-closed', () => {
+	app.quit();
 });

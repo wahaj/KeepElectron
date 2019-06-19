@@ -3,17 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>Google Keep</title>
-        <script src="js/index.js"></script>
     </head>
 
     <body>
         <h1>Google Keep</h1>
-        <button class="login-button mdc-button">Sign In Using Google</button>
+        <button id="login-button" class="login-button mdc-button">Sign In Using Google</button>
         We are using node <script>document.write(process.versions.node)</script>,
         Chrome <script>document.write(process.versions.chrome)</script>,
         and Electron <script>document.write(process.versions.electron)</script>
-        <link id="styles" rel="stylesheet" href="./build/bundle.css"></link>
-        <script src="./build/bundle.js"></script>
+
+        <link id="styles" rel="stylesheet" href="../dist/renderer/bundle.css"/>
+
+        <script src="../dist/renderer/renderer-bundle.js"></script>
 
     </body>
 </html>

@@ -311,10 +311,10 @@ svg.mdc-button__icon {
   --mdc-ripple-fg-opacity: 0.24; }
 
 .test-button:not(:disabled) {
-  color: teal; }
+  color: white; }
 
 .test-button::before, .test-button::after {
-  background-color: teal; }
+  background-color: black; }
 
 .test-button:hover::before {
   opacity: 0.04; }

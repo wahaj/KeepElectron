@@ -1,8 +1,7 @@
 const autoprefixer = require('autoprefixer');
+const path = require('path');
 
-module.exports = {
-	/* +++++ entry +++++ */
-	entry: [__dirname + '/main.js', __dirname + '/src/scss/app.scss'],
+let common_config = {
 	module: {
 		rules: [
 			{
@@ -50,19 +49,39 @@ module.exports = {
 			}
 		]
 	},
-	/* +++++ plugins +++++ */
-	plugins: [
-	],
-	output: {
-		path: __dirname + '/build/',
-		publicPath: './build/',
-		filename: 'bundle.js'
-	},
 	node: {
 		fs: "empty"
 	},
 	optimization: {
 		nodeEnv: 'electron'
 	},
-	target: 'electron-main'
+	resolve: {
+		modules:[
+			"node_modules"
+		],
+		extensions: [".ts", ".js", ".json"]
+	},
 };
+module.exports = [
+	Object.assign({}, common_config, {
+		target: 'electron-main',
+		entry: {
+			main: './main.js',
+		},
+		output: {
+			filename: '[name]-bundle.js',
+			path: path.resolve(__dirname, 'dist/main')
+		},
+	}),
+	Object.assign({}, common_config, {
+		target: 'electron-renderer',
+		entry: {
+			renderer: './src/js/index.js',
+			sass: './src/scss/app.scss'
+		},
+		output: {
+			filename: '[name]-bundle.js',
+			path: path.resolve(__dirname, 'dist/renderer')
+		},
+	}),
+];
