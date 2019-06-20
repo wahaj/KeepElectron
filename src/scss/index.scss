@@ -1,0 +1,31 @@
+@import "@material/button/mdc-button";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+@import "@material/top-app-bar/mdc-top-app-bar";
+
+$mdc-theme-primary: #080e00;
+$mdc-theme-secondary: #301e1f;
+
+#login-button {
+	@include mdc-button-ink-color(black);
+	@include mdc-states(blue);
+}
+
+.keep-title {
+	font-family: Roboto, sans-serif;
+	text-align: center;
+	margin: 5px auto;
+}
+#keep-drawer {
+	display: block;
+	width: 48px;
+	padding: 40px 0 0;
+	margin: 0 auto;
+	fill: currentColor;
+}
+
+.mdc-top-app-bar {
+	@include mdc-top-app-bar-ink-color(#5f6368);
+	@include mdc-top-app-bar-fill-color(black);
+}
+

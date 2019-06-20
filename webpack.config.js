@@ -76,8 +76,8 @@ module.exports = [
 	Object.assign({}, common_config, {
 		target: 'electron-renderer',
 		entry: {
-			renderer: './src/js/index.js',
-			sass: './src/scss/app.scss'
+			index: ['./src/js/index.js','./src/scss/index.scss'],
+			login: ['./src/js/login.js','./src/scss/login.scss']
 		},
 		output: {
 			filename: '[name]-bundle.js',

@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Google Keep</title>
-    </head>
+<head>
+	<meta charset="UTF-8">
+	<title>Google Keep</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link id="styles" rel="stylesheet" href="../dist/renderer/bundle.css"/>
+</head>
 
-    <body>
-        <h1>Google Keep</h1>
-        <button id="login-button" class="login-button mdc-button">Sign In Using Google</button>
-        We are using node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>
+<body>
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+	<div class="mdc-top-app-bar__row">
+		<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+			<a href="#" class="material-icons mdc-top-app-bar__navigation-icon"></a>
+			<span class="mdc-top-app-bar__title">KEEP</span>
+		</section>
+		<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+			<a href="#" class="material-icons mdc-button__iconE"></a>
+		</section>
+	</div>
+</header>
 
-        <link id="styles" rel="stylesheet" href="../dist/renderer/bundle.css"/>
+<aside class="mdc-drawer" id="keep-drawer">
+	<div class="mdc-drawer__content">
+		<nav class="mdc-list">
+			<a class="mdc-list-item mdc-list-item--activated" aria-selected="true" tabindex="0" href="#">
+				<span class="mdc-list-item__text">Home</span>
+			</a>
+			<a class="mdc-list-item" href="#">
+				<span class="mdc-list-item__text">Login</span>
+			</a>
+			<a class="mdc-list-item" href="#">
+				<span class="mdc-list-item__text">My Account</span>
+			</a>
+		</nav>
+	</div>
+</aside>
+<div class="mdc-drawer-scrim"></div>
 
-        <script src="../dist/renderer/renderer-bundle.js"></script>
-
-    </body>
+<button id="login-button" class="login-button mdc-button">Sign In Using Google</button>
+<script src="../dist/renderer/index-bundle.js"></script>
+</body>
 </html>

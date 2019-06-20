@@ -1,16 +1,15 @@
-const { ripple } = require('material-components-web');
 const { ipcRenderer } = require('electron');
+import { MDCTopAppBar } from '@material/top-app-bar';
+import {MDCRipple} from '@material/ripple';
+import {MDCList} from '@material/list';
+import {MDCDrawer} from "@material/drawer";
 
 
-console.log("index.js loaded");
 function logInGoogle () {
-    console.log("ASASAS");
     ipcRenderer.send('openGoogleLogin' );
 }
 
-// window.onload = function () {
-
-    // Alternative to load event
+// Alternative to load event
 document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
         initApplication();
@@ -18,17 +17,30 @@ document.onreadystatechange = function () {
 };
 
 function initApplication() {
+    // Instantiation
 
+    // Navbar
+    const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+    if (topAppBarElement) {
+        console.log("AS");
+        const topAppBar = new MDCTopAppBar(topAppBarElement);
+    }
+    // Drawer
+    const drawerElement = document.querySelector('keep-drawer');
+    if (drawerElement) {
+        const drawer = MDCDrawer.attachTo(drawerElement);
+        //const drawer = new MDCList(document.querySelector('.mdc-list'));
+    }
+
+    // Navbar button click
+    topAppBar.listen('MDCTopAppBar:nav', () => {
+        drawer.open = !drawer.open;
+    });
+
+    // Button
     let button = document.getElementById('login-button');
-    console.log("wjat");
     if (button) {
-        console.log("Button found");
-        ripple.MDCRipple.attachTo(button);
+        new MDCRipple(button);
         button.addEventListener('click', logInGoogle, false);
     }
 }
-
-// var settingsEl = document.querySelector('.settings');
-// settingsEl.addEventListener('click', function () {
-//     ipc.send('open-settings-window');
-// });
