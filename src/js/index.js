@@ -9,6 +9,7 @@ function logInGoogle () {
     ipcRenderer.send('openGoogleLogin' );
 }
 
+
 // Alternative to load event
 document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
@@ -21,21 +22,36 @@ function initApplication() {
 
     // Navbar
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+    let topAppBar = null;
     if (topAppBarElement) {
-        console.log("AS");
-        const topAppBar = new MDCTopAppBar(topAppBarElement);
-    }
-    // Drawer
-    const drawerElement = document.querySelector('keep-drawer');
-    if (drawerElement) {
-        const drawer = MDCDrawer.attachTo(drawerElement);
-        //const drawer = new MDCList(document.querySelector('.mdc-list'));
+        topAppBar = new MDCTopAppBar.attachTo(topAppBarElement);
     }
 
+    // Drawer
+    const drawerElement = document.querySelector('.mdc-drawer');
+    let drawer = null;
+    if (drawerElement) {
+        drawer = new MDCDrawer.attachTo(drawerElement);
+    }
+
+    // DrawerList
+    const listElement = document.querySelector('.mdc-drawer .mdc-list');
+    if  (listElement) {
+        listElement.addEventListener('click', (event) => {
+            drawer.open = false;
+        });
+    }
+
+
     // Navbar button click
-    topAppBar.listen('MDCTopAppBar:nav', () => {
-        drawer.open = !drawer.open;
-    });
+    if (topAppBar){
+        topAppBar.setScrollTarget(document.querySelector('.main-content'));
+        topAppBar.listen('MDCTopAppBar:nav', () => {
+            drawer.open = !drawer.open;
+        });
+    }
+
+
 
     // Button
     let button = document.getElementById('login-button');

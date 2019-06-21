@@ -21,7 +21,7 @@ let common_config = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'bundle.css'
+							name: '[name].css'
 						},
 					},
 					{ loader: 'extract-loader' },

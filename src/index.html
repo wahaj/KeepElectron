@@ -4,40 +4,60 @@
 	<meta charset="UTF-8">
 	<title>Google Keep</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link id="styles" rel="stylesheet" href="../dist/renderer/bundle.css"/>
+	<link id="styles" rel="stylesheet" href="../dist/renderer/index.css"/>
 </head>
 
 <body>
-<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
-	<div class="mdc-top-app-bar__row">
-		<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-			<a href="#" class="material-icons mdc-top-app-bar__navigation-icon"></a>
-			<span class="mdc-top-app-bar__title">KEEP</span>
-		</section>
-		<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-			<a href="#" class="material-icons mdc-button__iconE"></a>
-		</section>
-	</div>
-</header>
+	<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+		<div class="mdc-top-app-bar__row">
+			<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+				<a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+				<img alt="" aria-hidden="true" src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"
+				     srcset="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png 1x,
+				     https://www.gstatic.com/images/branding/product/2x/keep_48dp.png 2x "
+				     style="width:40px;height:40px">
+				<span class="mdc-top-app-bar__title">Keep</span>
+				<input type="search" class="search" placeholder="Search..." />
+				<button class="go"><span class="entypo-search"></span></button>
+			</section>
+			<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+				<a href="#" class="material-icons mdc-button__iconE"></a>
+			</section>
+		</div>
+	</header>
 
-<aside class="mdc-drawer" id="keep-drawer">
-	<div class="mdc-drawer__content">
-		<nav class="mdc-list">
-			<a class="mdc-list-item mdc-list-item--activated" aria-selected="true" tabindex="0" href="#">
-				<span class="mdc-list-item__text">Home</span>
-			</a>
-			<a class="mdc-list-item" href="#">
-				<span class="mdc-list-item__text">Login</span>
-			</a>
-			<a class="mdc-list-item" href="#">
-				<span class="mdc-list-item__text">My Account</span>
-			</a>
-		</nav>
-	</div>
-</aside>
-<div class="mdc-drawer-scrim"></div>
+	<aside class="mdc-drawer mdc-drawer--modal">
+		<div class="mdc-drawer__content">
+			<nav class="mdc-list">
+				<a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+					<i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+					<span class="mdc-list-item__text">Inbox</span>
+				</a>
+				<a class="mdc-list-item" href="#">
+					<i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+					<span class="mdc-list-item__text">Outgoing</span>
+				</a>
+				<a class="mdc-list-item" href="#">
+					<i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+					<span class="mdc-list-item__text">Drafts</span>
+				</a>
+			</nav>
+		</div>
+	</aside>
 
-<button id="login-button" class="login-button mdc-button">Sign In Using Google</button>
-<script src="../dist/renderer/index-bundle.js"></script>
+	<div class="mdc-drawer-scrim"></div>
+	<main class="mdc-drawer-app-content main-content">
+		<div class="mdc-layout-grid">
+			<div class="mdc-layout-grid__inner">
+				<div class="mdc-layout-grid__cell">
+					<button id="login-button" class="login-button mdc-button">Sign In Using Google</button>
+				</div>
+				<div class="mdc-layout-grid__cell"></div>
+				<div class="mdc-layout-grid__cell"></div>
+			</div>
+		</div>
+	</main>
+	<script src="../dist/renderer/index-bundle.js"></script>
+
 </body>
 </html>
