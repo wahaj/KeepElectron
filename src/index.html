@@ -10,19 +10,30 @@
 <body>
 	<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
 		<div class="mdc-top-app-bar__row">
-			<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+			<section class="mdc-top-app-bar__section ">
 				<a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
 				<img alt="" aria-hidden="true" src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"
 				     srcset="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png 1x,
 				     https://www.gstatic.com/images/branding/product/2x/keep_48dp.png 2x "
 				     style="width:40px;height:40px">
-				<span class="mdc-top-app-bar__title">Keep</span>
-				<input type="search" class="search" placeholder="Search..." />
-				<button class="go"><span class="entypo-search"></span></button>
+<!--				<h1 class="mdc-top-app-bar__title">Keep</h1>-->
+				<form>
+					<div class="mdc-text-field mdc-text-field--with-trailing-icon search-bar ">
+						<input id ="search-query" class="mdc-text-field__input" type="text" aria-label="Search Bar">
+						<label class="mdc-floating-label" for="search-query">Search</label>
+
+						<!-- Added a search icon just in case. text-field with trailing icon allows only one, so style  element. (I could be wrong here). Also, applying as class and external css is being overridden by other styles. -->
+						<i class="material-icons mdc-text-field__icon">search</i>
+						<!-- Icon elements acting as buttons, need to add corresponding event listeners-->
+<!--						<i class="material-icons mdc-text-field__icon" tabindex="1" role="button" >close</i>-->
+
+						<div class="mdc-line-ripple"></div>
+					</div>
+				</form>
 			</section>
-			<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-				<a href="#" class="material-icons mdc-button__iconE"></a>
-			</section>
+<!--			<section class="mdc-top-app-bar__section mdc-top-app-bar__section&#45;&#45;align-end" role="toolbar">-->
+<!--				<a href="#" class="material-icons mdc-button__icon"></a>-->
+<!--			</section>-->
 		</div>
 	</header>
 
@@ -46,13 +57,20 @@
 	</aside>
 
 	<div class="mdc-drawer-scrim"></div>
-	<main class="mdc-drawer-app-content main-content">
+	<main class="mdc-drawer-app-content main-content mdc-top-app-bar--fixed-adjust">
 		<div class="mdc-layout-grid">
 			<div class="mdc-layout-grid__inner">
-				<div class="mdc-layout-grid__cell">
+				<div class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-3-desktop">
+					What the fuck
+				</div>
+			</div>
+			<div class="mdc-layout-grid__inner">
+				<div class="mdc-layout-grid__cell  mdc-layout-grid__cell--span-3-desktop">
+					<h1 class="mdc-typography--headline1">QHat ehraekbakdjb askda</h1>
+				</div>
+				<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop">
 					<button id="login-button" class="login-button mdc-button">Sign In Using Google</button>
 				</div>
-				<div class="mdc-layout-grid__cell"></div>
 				<div class="mdc-layout-grid__cell"></div>
 			</div>
 		</div>

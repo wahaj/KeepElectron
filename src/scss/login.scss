@@ -1,6 +1,16 @@
+@import "./common";
 @import "@material/textfield/mdc-text-field";
 @import "@material/button/mdc-button";
 
+header {
+  text-align: center;  
+}
+
+.title {
+  color: $mdc-theme-secondary;
+  font-weight: bold;
+  font-family: Serif;
+}
 .username,
 .password {
   display:block;
@@ -8,9 +18,12 @@
   margin:20px auto;
 }
 
-.button {
-  display: flex;
-  justify-content: center ;
-  width: 300px;
+#login-button {
+  display: block;
+  justify-content: center;
+  width: 400px;
   margin: auto;
+
+  @include mdc-states(primary);
+  @include mdc-elevation(3);
 }

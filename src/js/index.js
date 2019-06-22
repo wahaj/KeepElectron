@@ -3,6 +3,7 @@ import { MDCTopAppBar } from '@material/top-app-bar';
 import {MDCRipple} from '@material/ripple';
 import {MDCList} from '@material/list';
 import {MDCDrawer} from "@material/drawer";
+import {MDCTextField} from '@material/textfield';
 
 
 function logInGoogle () {
@@ -51,6 +52,8 @@ function initApplication() {
         });
     }
 
+    // Search Bar
+    const searchField = new MDCTextField(document.querySelector('.search-bar'));
 
 
     // Button

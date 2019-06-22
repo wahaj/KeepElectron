@@ -63,6 +63,7 @@ let common_config = {
 	},
 };
 module.exports = [
+
 	Object.assign({}, common_config, {
 		target: 'electron-main',
 		entry: {
@@ -77,7 +78,7 @@ module.exports = [
 		target: 'electron-renderer',
 		entry: {
 			index: ['./src/js/index.js','./src/scss/index.scss'],
-			login: ['./src/js/login.js','./src/scss/login.scss']
+			login: ['./src/js/login.js','./src/scss/login.scss'],
 		},
 		output: {
 			filename: '[name]-bundle.js',

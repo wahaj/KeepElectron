@@ -25,7 +25,7 @@
     "webpack-dev-server": "^3.7.1"
   },
   "scripts": {
-    "start": "npm run build && electron . debug",
+    "start": "npm run dev && electron . debug",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",

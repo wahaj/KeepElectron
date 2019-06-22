@@ -5,7 +5,6 @@ import {MDCRipple} from '@material/ripple';
 
 
 function loginSubmit(){
-
 	ipcRenderer.send('loginSubmit',)
 }
 
