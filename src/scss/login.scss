@@ -2,11 +2,22 @@
 @import "@material/textfield/mdc-text-field";
 @import "@material/button/mdc-button";
 
-header {
-  text-align: center;  
+.title-container {
+  text-align: center;
+}
+.logo-container {
+  text-align: center;
 }
 
+.keep-logo {
+  display:inline-block;
+  height: 12%;
+  width: 12%;
+
+}
 .title {
+  size: 20px;
+  display:inline-block;
   color: $mdc-theme-secondary;
   font-weight: bold;
   font-family: Serif;
@@ -14,15 +25,17 @@ header {
 .username,
 .password {
   display:block;
-  width: 300px;
+  width: 40%;
   margin:20px auto;
+  @include mdc-elevation(3);
+
 }
 
 #login-button {
   display: block;
   justify-content: center;
-  width: 400px;
-  margin: auto;
+  width: 40%;
+  margin: 10px auto;
 
   @include mdc-states(primary);
   @include mdc-elevation(3);

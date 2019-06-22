@@ -1,5 +1,6 @@
 const { app, ipcMain } =  require('electron');
 const Window = require('./src/js/Window');
+import {PythonShell} from "python-shell";
 
 let mainWindow = null;
 
@@ -21,6 +22,20 @@ app.on('ready', main);
 ipcMain.on('openGoogleLogin', () => {
     mainWindow.loadURL('file://' + __dirname + '/src/login.html');
 });
+
+ipcMain.on('loginSubmit', (username,password) => {
+	let pythonOptions = {
+		mode: 'text',
+		pythonPath: 'venv/bin/python',
+		pythonOptions: ['-u'], // get print results in real-time
+		args: [username, password]
+	};
+	PythonShell.run('src/external-python/login.py', pythonOptions, function (err) {
+        if (err) throw err;
+        console.log('finished');
+    });
+});
+
 
 app.on('window-all-closed', () => {
 	app.quit();

@@ -19,16 +19,19 @@
     "material-components-web": "^2.3.1",
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
+    "python-shell": "^1.0.7",
     "sass-loader": "^7.1.0",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.7.1"
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
   },
   "scripts": {
     "start": "npm run dev && electron . debug",
+    "web": "webpack-dev-server --config webpack.config.web.js --mode development --hot --inline",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
+    "dev": "rm -rf dist && webpack --config webpack.config.electron.js --mode development",
+    "build": "webpack --config webpack.config.electron.js --mode production",
     "electron": "electron ."
   },
   "repository": {

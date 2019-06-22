@@ -2,10 +2,11 @@ const { ipcRenderer } = require('electron');
 
 import {MDCTextField} from '@material/textfield';
 import {MDCRipple} from '@material/ripple';
+import {MDCFormField} from '@material/form-field';
 
 
-function loginSubmit(){
-	ipcRenderer.send('loginSubmit',)
+function loginSubmit(username, password){
+	ipcRenderer.send('loginSubmit', username, password);
 }
 
 
@@ -18,12 +19,15 @@ document.onreadystatechange = function () {
 
 function initApplication() {
 	// Instantiation
+	const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
 	const username = new MDCTextField(document.querySelector('.username'));
 	const password = new MDCTextField(document.querySelector('.password'));
 
 	const loginButton = document.getElementById('login-button');
 	if (loginButton){
-		new MDCRipple(button);
-		loginButton.addEventListener('click', loginSubmit, false);
+		new MDCRipple(loginButton);
+		loginButton.addEventListener('click', function loginSubmit() {
+			ipcRenderer.send('loginSubmit', username.value, password.value);
+		});
 	}
 }
