@@ -22,11 +22,13 @@ function initApplication() {
 	const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
 	const username = new MDCTextField(document.querySelector('.username'));
 	const password = new MDCTextField(document.querySelector('.password'));
-
 	const loginButton = document.getElementById('login-button');
 	if (loginButton){
 		new MDCRipple(loginButton);
+
 		loginButton.addEventListener('click', function loginSubmit() {
+			console.log(username.value);
+
 			ipcRenderer.send('loginSubmit', username.value, password.value);
 		});
 	}

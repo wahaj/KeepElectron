@@ -1,9 +1,13 @@
 import sys
+import keyring
 import gkeepapi
+
+sys.stdout.flush()
 
 keep = gkeepapi.Keep()
 success = keep.login(sys.argv[1],sys.argv[2])
 
-note = keep.createNote('Todo','What the fuck')
-note.color = gkeepapi.node.ColorValue.Red
+token = keep.getMasterToken()
+keyring.set_password('google-keep-token', sys.argv[1], token)
+
 keep.sync()

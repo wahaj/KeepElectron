@@ -1,8 +1,10 @@
 const { app, ipcMain } =  require('electron');
 const Window = require('./src/js/Window');
-import {PythonShell} from "python-shell";
+const { PythonShell } = require("python-shell");
+const Keep = require("./src/js/Keep");
 
 let mainWindow = null;
+let keep = new Keep();
 
 function main () {
     // Creates an object of a browser window class which shall
@@ -19,21 +21,25 @@ function main () {
 //  Start point for the application for most use cases
 app.on('ready', main);
 
+
+
+
 ipcMain.on('openGoogleLogin', () => {
     mainWindow.loadURL('file://' + __dirname + '/src/login.html');
 });
 
-ipcMain.on('loginSubmit', (username,password) => {
+ipcMain.on('loginSubmit', (event, username, password) => {
 	let pythonOptions = {
-		mode: 'text',
 		pythonPath: 'venv/bin/python',
 		pythonOptions: ['-u'], // get print results in real-time
 		args: [username, password]
 	};
-	PythonShell.run('src/external-python/login.py', pythonOptions, function (err) {
-        if (err) throw err;
-        console.log('finished');
+	PythonShell.run('src/external-python/login.py', pythonOptions, function (err, results) {
+		if (err) throw err;
+        console.log(results);
     });
+
+	keep.getNotes(username);
 });
 
 
