@@ -3442,26 +3442,19 @@ a.mdc-list-item {
 body {
   font-family: 'Product Sans',Arial,sans-serif; }
 
-#login-button {
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12); }
-  #login-button::before, #login-button::after {
-    background-color: #ffd54f; }
-    @supports not (-ms-ime-align: auto) {
-      #login-button::before, #login-button::after {
-        /* @alternate */
-        background-color: var(--mdc-theme-primary, #ffd54f); } }
-  #login-button:hover::before {
-    opacity: 0.08; }
-  #login-button:not(.mdc-ripple-upgraded):focus::before, #login-button.mdc-ripple-upgraded--background-focused::before {
-    transition-duration: 75ms;
-    opacity: 0.24; }
-  #login-button:not(.mdc-ripple-upgraded)::after {
-    transition: opacity 150ms linear; }
-  #login-button:not(.mdc-ripple-upgraded):active::after {
-    transition-duration: 75ms;
-    opacity: 0.24; }
-  #login-button.mdc-ripple-upgraded {
-    --mdc-ripple-fg-opacity: 0.24; }
+#grid {
+  --mdc-layout-grid-margin-phone: 160dp;
+  --mdc-layout-grid-margin-tablet: 240dp;
+  --mdc-layout-grid-margin-desktop: 300dp; }
+  #grid .mdc-layout-grid__inner .mdc-layout-grid__cell {
+    padding: 10px; }
+    #grid .mdc-layout-grid__inner .mdc-layout-grid__cell .mdc-card {
+      margin: 20px;
+      padding: 16px;
+      border-radius: 6dp;
+      box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12); }
+      #grid .mdc-layout-grid__inner .mdc-layout-grid__cell .mdc-card .mdc-typography--body1 {
+        margin: 10px; }
 
 .mdc-top-app-bar__title {
   font-family: 'Product Sans',Arial,sans-serif;
@@ -3508,8 +3501,28 @@ body {
     .mdc-top-app-bar .mdc-top-app-bar__action-item.mdc-ripple-upgraded,
     .mdc-top-app-bar .mdc-top-app-bar__navigation-icon.mdc-ripple-upgraded {
       --mdc-ripple-fg-opacity: 0.12; }
+  .mdc-top-app-bar .search-bar {
+    width: 100%;
+    margin: 10px;
+    border-radius: 8dp 4dp 0 0; }
 
-.search-bar {
-  width: 90%;
-  margin: 15%;
-  border-radius: 100 100 0 0; }
+#login-button {
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12); }
+  #login-button::before, #login-button::after {
+    background-color: #ffd54f; }
+    @supports not (-ms-ime-align: auto) {
+      #login-button::before, #login-button::after {
+        /* @alternate */
+        background-color: var(--mdc-theme-primary, #ffd54f); } }
+  #login-button:hover::before {
+    opacity: 0.08; }
+  #login-button:not(.mdc-ripple-upgraded):focus::before, #login-button.mdc-ripple-upgraded--background-focused::before {
+    transition-duration: 75ms;
+    opacity: 0.24; }
+  #login-button:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  #login-button:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0.24; }
+  #login-button.mdc-ripple-upgraded {
+    --mdc-ripple-fg-opacity: 0.24; }

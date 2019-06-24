@@ -12,13 +12,15 @@ function logInGoogle () {
 }
 function initializeNote(value, index, array) {
     let grid = document.getElementById('grid');
-    console.log(value);
-    grid.innerHTML += '<div class="mdc-layout-grid__inner"><div class="mdc-layout-grid__cell ' +
-        'mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-2-tablet ' +
-        'mdc-layout-grid__cell--span-2-phone"><div class="mdc-card">' +
-        '<div class="mdc-card__primary-action"><div class="mdc-card__media-content"><h6 class="mdc-typography ' +
-        'mdc-typography--headline6">' + value.title + '</h6>' +
-        '</div></div></div></div></div>';
+
+    let gridCellSpans = 'mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-desktop';
+    let gridCellDiv = '<div class="mdc-layout-grid__cell ' + gridCellSpans + '"><div class="mdc-card">';
+    if (value.title !== "")
+        gridCellDiv += '<h4 class="mdc-typography mdc-typography--headline4">' + value.title + '</h4>';
+    gridCellDiv += '<div class="mdc-card__primary-action" tabindex="0"><div class="mdc-typography--body1">' + value.text;
+    gridCellDiv += '</div></div></div></div>';
+
+    grid.children[0].innerHTML += gridCellDiv;
 }
 function createDisplayNotes(noteList) {
     noteList.forEach(initializeNote);

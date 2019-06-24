@@ -16,14 +16,46 @@
 body {
 	font-family: 'Product Sans',Arial,sans-serif;
 }
-#login-button {
 
-	@include mdc-states(primary);
-	@include mdc-elevation(3)
-}
-.mdc-card {
+#grid {
+	//@include mdc-layout-grid(desktop, 30dp);
+	//@include mdc-layout-grid(tablet, 24dp);
+	//@include mdc-layout-grid(phone, 16dp);
+	//align-items: start;
+	--mdc-layout-grid-margin-phone: 160dp;
+	--mdc-layout-grid-margin-tablet: 240dp;
+	--mdc-layout-grid-margin-desktop: 300dp;
 
+
+	.mdc-layout-grid__inner {
+		//
+		//--mdc-layout-grid-gutter-phone: 4dp;
+		//--mdc-layout-grid-gutter-tablet: 24dp;
+		//--mdc-layout-grid-gutter-desktop: 30dp;
+
+		//@include mdc-layout-grid-inner(desktop, 30dp, 24dp);
+		//@include mdc-layout-grid-inner(tablet, 24dp, 16dp);
+		//@include mdc-layout-grid-inner(phone, 16dp, 12dp);
+		.mdc-layout-grid__cell {
+			padding: 10px;
+	//		@include mdc-layout-grid-cell(desktop, 4, 24dp);
+	//		@include mdc-layout-grid-cell(tablet, 4, 16dp);
+	//		@include mdc-layout-grid-cell(phone, 2, 12dp);
+
+			//@include mdc-elevation(1);
+			.mdc-card {
+				margin: 20px;
+				padding: 16px;
+				@include mdc-card-shape-radius(6dp);
+				@include mdc-elevation(3);
+				.mdc-typography--body1{
+					margin:10px;
+				}
+			}
+		}
+	}
 }
+
 .mdc-top-app-bar__title {
 	font-family: 'Product Sans',Arial,sans-serif;
 	font-size: 22px;
@@ -36,14 +68,15 @@ body {
 	@include mdc-top-app-bar-fill-color-accessible(primary);
 	@include mdc-top-app-bar-icon-ink-color(secondary);
 	@include mdc-elevation(3);
+	.search-bar {
+		width: 100%;
+		margin: 10px;
+		@include mdc-text-field-shape-radius(8dp 4dp);
+	}
 }
 
-.mdc-layout-grid {
+#login-button {
 
-}
-
-.search-bar {
-	width: 90%;
-	margin: 15%;
-	@include mdc-text-field-shape-radius(100);
+	@include mdc-states(primary);
+	@include mdc-elevation(3);
 }
