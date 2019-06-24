@@ -5,10 +5,6 @@ import {MDCRipple} from '@material/ripple';
 import {MDCFormField} from '@material/form-field';
 
 
-function loginSubmit(username, password){
-	ipcRenderer.send('loginSubmit', username, password);
-}
-
 
 // Alternative to load event
 document.onreadystatechange = function () {
@@ -26,9 +22,8 @@ function initApplication() {
 	if (loginButton){
 		new MDCRipple(loginButton);
 
-		loginButton.addEventListener('click', function loginSubmit() {
-			console.log(username.value);
-
+		loginButton.addEventListener('click', function loginSubmit(event) {
+			event.preventDefault(); // stop the form from submitting
 			ipcRenderer.send('loginSubmit', username.value, password.value);
 		});
 	}

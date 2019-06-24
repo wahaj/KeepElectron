@@ -1,4 +1,5 @@
 const { ipcRenderer } = require('electron');
+const Keep = require('./Keep');
 import { MDCTopAppBar } from '@material/top-app-bar';
 import {MDCRipple} from '@material/ripple';
 import {MDCList} from '@material/list';
@@ -9,6 +10,21 @@ import {MDCTextField} from '@material/textfield';
 function logInGoogle () {
     ipcRenderer.send('openGoogleLogin' );
 }
+function initializeNote(value, index, array) {
+    let grid = document.getElementById('grid');
+    console.log(value);
+    grid.innerHTML += '<div class="mdc-layout-grid__inner"><div class="mdc-layout-grid__cell ' +
+        'mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-2-tablet ' +
+        'mdc-layout-grid__cell--span-2-phone"><div class="mdc-card">' +
+        '<div class="mdc-card__primary-action"><div class="mdc-card__media-content"><h6 class="mdc-typography ' +
+        'mdc-typography--headline6">' + value.title + '</h6>' +
+        '</div></div></div></div></div>';
+}
+function createDisplayNotes(noteList) {
+    noteList.forEach(initializeNote);
+
+}
+
 
 
 // Alternative to load event
@@ -20,6 +36,13 @@ document.onreadystatechange = function () {
 
 function initApplication() {
     // Instantiation
+	let keep = new Keep();
+	let noteList = null;
+	keep.getNotes("major.payne141@gmail.com").then(function(result) {
+	    noteList = result;
+	    createDisplayNotes(noteList);
+	});
+
 
     // Navbar
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');

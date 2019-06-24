@@ -5,6 +5,7 @@
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/layout-grid/mdc-layout-grid";
 @import "@material/textfield/mdc-text-field";
+@import "@material/card/mdc-card";
 
 @media (min-width: 840px) {
 	.mdc-layout-grid__inner {
@@ -20,7 +21,9 @@ body {
 	@include mdc-states(primary);
 	@include mdc-elevation(3)
 }
+.mdc-card {
 
+}
 .mdc-top-app-bar__title {
 	font-family: 'Product Sans',Arial,sans-serif;
 	font-size: 22px;
@@ -43,4 +46,4 @@ body {
 	width: 90%;
 	margin: 15%;
 	@include mdc-text-field-shape-radius(100);
-	}
+}

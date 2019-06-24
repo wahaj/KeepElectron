@@ -40,6 +40,7 @@ ipcMain.on('loginSubmit', (event, username, password) => {
     });
 
 	keep.getNotes(username);
+	mainWindow.loadURL('file://' + __dirname + '/src/index.html');
 });
 
 
