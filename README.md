@@ -1,6 +1,9 @@
 # Keep Electron
 An electron implementation of Google Keep
 
+Underlying API (gkeepapi) :
+https://gkeepapi.readthedocs.io/en/latest/
+
 To-Do:
 
 - Set up a JS transpiler from ES6 and above to ES2015
