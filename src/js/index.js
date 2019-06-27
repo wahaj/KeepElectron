@@ -12,13 +12,28 @@ function logInGoogle () {
 }
 function initializeNote(value, index, array) {
     let grid = document.getElementById('grid');
-
+    if (value.list !== undefined) {
+    }
     let gridCellSpans = 'mdc-layout-grid__cell--span-2-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-desktop';
     let gridCellDiv = '<div class="mdc-layout-grid__cell ' + gridCellSpans + '"><div class="mdc-card">';
     if (value.title !== "")
         gridCellDiv += '<h4 class="mdc-typography mdc-typography--headline4">' + value.title + '</h4>';
-    gridCellDiv += '<div class="mdc-card__primary-action" tabindex="0"><div class="mdc-typography--body1">' + value.text;
-    gridCellDiv += '</div></div></div></div>';
+
+    if (value.list) {
+        let tempHtml = '<div class="mdc-card__primary-action" tabindex="0"><ul class="mdc-list" role="group" aria-label="List with checkbox items">';
+        value.list.forEach(function (item) {
+            tempHtml += '<li class="mdc-list-item" role="checkbox" aria-checked="false"><span class="mdc-list-item__graphic">' +
+                '<div class="mdc-checkbox"><input type="checkbox" class="mdc-checkbox__native-control" /> ' +
+                '<div class="mdc-checkbox__background"><div class="mdc-checkbox__mixedmark"></div></div></div></span>' +
+                '<label class="mdc-list-item__text" for="demo-list-checkbox-item-1">' + item.text + '</label></li>';
+        });
+        tempHtml += '</ul></div>';
+        gridCellDiv += tempHtml;
+    }
+    else {
+        gridCellDiv += '<div class="mdc-card__primary-action" tabindex="0"><div class="mdc-typography--body1">' + value.text + '</div></div>';
+    }
+    gridCellDiv += '</div></div>';
 
     grid.children[0].innerHTML += gridCellDiv;
 }

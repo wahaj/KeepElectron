@@ -12,13 +12,28 @@ keep.resume(sys.argv[1],token)
 gnotes = keep.all()
 note_json = {}
 for note in gnotes:
-    note_json = {
-            "title": note.title,
-            "text": note.text,
-            "archived": note.archived,
-            "pinned": note.pinned,
-            "color": note.color.value
+    list = {}
+
+    if (isinstance(note,gkeepapi.node.List)):
+        list = [{"text": item.text, "checked": item.checked} for item in note.checked]
+        note_json = {
+                    "id": note.id,
+                    "title": note.title,
+                    "list": list,
+                    "color": note.color.value,
+                    "archived": note.archived,
+                    "pinned": note.pinned,
             }
+    else:
+        note_json = {
+                "id": note.id,
+                "title": note.title,
+                "text": note.text,
+                "color": note.color.value,
+                "archived": note.archived,
+                "pinned": note.pinned,
+        }
+
     print(json.dumps(note_json, sort_keys=True))
     
 

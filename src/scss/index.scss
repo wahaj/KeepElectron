@@ -6,6 +6,7 @@
 @import "@material/layout-grid/mdc-layout-grid";
 @import "@material/textfield/mdc-text-field";
 @import "@material/card/mdc-card";
+@import "@material/checkbox/mdc-checkbox";
 
 @media (min-width: 840px) {
 	.mdc-layout-grid__inner {
@@ -18,6 +19,7 @@ body {
 }
 
 #grid {
+	margin-top: 70px;
 	//@include mdc-layout-grid(desktop, 30dp);
 	//@include mdc-layout-grid(tablet, 24dp);
 	//@include mdc-layout-grid(phone, 16dp);
